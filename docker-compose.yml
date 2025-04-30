@@ -1,0 +1,32 @@
+services:
+  mongodb-service:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=JoB12E4WfI4nDmwgVxDNcSwR
+    networks:
+      - app-network
+ 
+  giftlink-backend:
+    image: giftlink-backend
+    ports:
+      - "3060:3060"
+    depends_on:
+      - mongodb-service
+    networks:
+      - app-network
+
+  giftlink-frontend:
+    image: giftlink-frontend
+    ports:
+      - "9000:9000"
+    depends_on:
+      - giftlink-backend
+    networks:
+      - app-network
+ 
+networks:
+  app-network:
+    driver: bridge
