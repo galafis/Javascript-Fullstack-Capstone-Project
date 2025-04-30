@@ -1,6 +1,6 @@
 # Projeto Capstone Full-Stack JavaScript: GiftLink
 
-Este repositório contém o projeto capstone desenvolvido como parte do programa IBM Full-Stack JavaScript Developer. GiftLink é uma aplicação web full-stack que permite aos usuários listar e encontrar presentes (gifts).
+Este repositório contém o projeto capstone desenvolvido por mim, como parte do programa IBM Full-Stack JavaScript / Capstone Developer. GiftLink é uma aplicação web full-stack que permite aos usuários listar e encontrar presentes (gifts).
 
 ## Visão Geral
 
