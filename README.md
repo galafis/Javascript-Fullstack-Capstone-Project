@@ -142,9 +142,7 @@ Siga os passos abaixo para configurar e executar o projeto localmente.
 
 O projeto utiliza User Stories para gerenciar o desenvolvimento de funcionalidades. Os templates para criação de User Stories (issues) podem ser encontrados na pasta `.github/ISSUE_TEMPLATE`. Conforme os requisitos da tarefa, pelo menos 8 user stories devem ser criadas no repositório GitHub com as labels apropriadas (`new`, `icebox`, `technical debt`, `backlog`).
 
-## CI/CD e Deployment
 
-Os requisitos da tarefa mencionam a necessidade de um processo de CI/CD e o deployment da aplicação. A configuração específica para CI/CD (ex: GitHub Actions) e o ambiente de deployment não estão incluídos neste repositório base e precisam ser configurados separadamente.
 
 ## Licença
 
