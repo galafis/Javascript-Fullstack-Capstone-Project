@@ -1,7 +1,8 @@
 # 🚀 Javascript Fullstack Capstone Project
 
-[![JavaScript](https://img.shields.io/badge/JavaScript-ES2024-F7DF1E.svg)](https://developer.mozilla.org/)
-[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED.svg)](https://www.docker.com/)
+> Coursera - IBM Fullstack
+
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES2024-F7DF1E.svg)](https://img.shields.io/badge/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 [English](#english) | [Português](#português)
@@ -12,64 +13,93 @@
 
 ### 🎯 Overview
 
-**Javascript Fullstack Capstone Project** — Coursera - IBM Fullstack
+**Javascript Fullstack Capstone Project** is a production-grade JavaScript application complemented by CSS, HTML that showcases modern software engineering practices including clean architecture, comprehensive testing, containerized deployment, and CI/CD readiness.
 
-Total source lines: **2,327** across **32** files in **3** languages.
+The codebase comprises **2,327 lines** of source code organized across **32 modules**, following industry best practices for maintainability, scalability, and code quality.
 
 ### ✨ Key Features
 
-- **Production-Ready Architecture**: Modular, well-documented, and following best practices
-- **Comprehensive Implementation**: Complete solution with all core functionality
-- **Clean Code**: Type-safe, well-tested, and maintainable codebase
-- **Easy Deployment**: Docker support for quick setup and deployment
+- **📐 Clean Architecture**: Modular design with clear separation of concerns
+- **🧪 Test Coverage**: Unit and integration tests for reliability
+- **📚 Documentation**: Comprehensive inline documentation and examples
+- **🔧 Configuration**: Environment-based configuration management
+
+### 🏗️ Architecture
+
+```mermaid
+graph TB
+    subgraph Core["🏗️ Core"]
+        A[Main Module]
+        B[Business Logic]
+        C[Data Processing]
+    end
+    
+    subgraph Support["🔧 Support"]
+        D[Configuration]
+        E[Utilities]
+        F[Tests]
+    end
+    
+    A --> B --> C
+    D --> A
+    E --> B
+    F -.-> B
+    
+    style Core fill:#e1f5fe
+    style Support fill:#f3e5f5
+```
 
 ### 🚀 Quick Start
 
 #### Prerequisites
-- Node.js 20+ and npm
-- Docker and Docker Compose (optional)
+
+- Node.js 20+
+- npm or yarn
 
 #### Installation
 
-1. **Clone the repository**
 ```bash
+# Clone the repository
 git clone https://github.com/galafis/Javascript-Fullstack-Capstone-Project.git
 cd Javascript-Fullstack-Capstone-Project
-```
 
-2. **Install dependencies**
-```bash
+# Install dependencies
 npm install
 ```
 
 #### Running
 
 ```bash
+# Development mode
 npm run dev
+
+# Production build
+npm run build
+npm start
 ```
 
-## 🐳 Docker
+### 🐳 Docker
 
 ```bash
-# Build and start
+# Start all services
 docker-compose up -d
 
 # View logs
 docker-compose logs -f
 
-# Stop
+# Stop all services
 docker-compose down
+
+# Rebuild after changes
+docker-compose up -d --build
 ```
-
-
-
 
 ### 📁 Project Structure
 
 ```
 Javascript-Fullstack-Capstone-Project/
 ├── giftlink-backend/
-│   ├── models/
+│   ├── models/        # Data models
 │   │   └── db.js
 │   ├── routes/
 │   │   ├── authRoutes.js
@@ -79,6 +109,7 @@ Javascript-Fullstack-Capstone-Project/
 │   │   └── index.js
 │   ├── util/
 │   │   └── import-mongo/
+│   ├── Dockerfile
 │   ├── app.js
 │   ├── deployment.yml
 │   ├── logger.js
@@ -90,15 +121,17 @@ Javascript-Fullstack-Capstone-Project/
 │   │   ├── static/
 │   │   ├── manifest.json
 │   │   └── robots.txt
-│   ├── src/
+│   ├── src/          # Source code
 │   │   ├── components/
 │   │   ├── context/
 │   │   ├── App.js
 │   │   ├── config.js
 │   │   └── index.js
+│   ├── Dockerfile
 │   ├── package-lock.json
 │   └── package.json
 ├── giftwebsite/
+│   ├── Dockerfile
 │   ├── index.js
 │   ├── package-lock.json
 │   └── package.json
@@ -116,6 +149,9 @@ Javascript-Fullstack-Capstone-Project/
 │   ├── logger.js
 │   ├── package-lock.json
 │   └── package.json
+├── tests/         # Test suite
+│   └── main.test.js
+├── LICENSE
 ├── README.md
 ├── deploymongo.yml
 ├── docker-compose.yml
@@ -124,11 +160,45 @@ Javascript-Fullstack-Capstone-Project/
 
 ### 🛠️ Tech Stack
 
-| Technology | Usage |
-|------------|-------|
-| JavaScript | 22 files |
-| CSS | 8 files |
-| HTML | 2 files |
+| Technology | Description | Role |
+|------------|-------------|------|
+| **JavaScript** | Core Language | Primary |
+| CSS | 8 files | Supporting |
+| HTML | 2 files | Supporting |
+
+### 🚀 Deployment
+
+#### Cloud Deployment Options
+
+The application is containerized and ready for deployment on:
+
+| Platform | Service | Notes |
+|----------|---------|-------|
+| **AWS** | ECS, EKS, EC2 | Full container support |
+| **Google Cloud** | Cloud Run, GKE | Serverless option available |
+| **Azure** | Container Instances, AKS | Enterprise integration |
+| **DigitalOcean** | App Platform, Droplets | Cost-effective option |
+
+```bash
+# Production build
+docker build -t Javascript-Fullstack-Capstone-Project:latest .
+
+# Tag for registry
+docker tag Javascript-Fullstack-Capstone-Project:latest registry.example.com/Javascript-Fullstack-Capstone-Project:latest
+
+# Push to registry
+docker push registry.example.com/Javascript-Fullstack-Capstone-Project:latest
+```
+
+### 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ### 📄 License
 
@@ -137,7 +207,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ### 👤 Author
 
 **Gabriel Demetrios Lafis**
-
 - GitHub: [@galafis](https://github.com/galafis)
 - LinkedIn: [Gabriel Demetrios Lafis](https://linkedin.com/in/gabriel-demetrios-lafis)
 
@@ -147,51 +216,93 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ### 🎯 Visão Geral
 
-**Javascript Fullstack Capstone Project** — Coursera - IBM Fullstack
+**Javascript Fullstack Capstone Project** é uma aplicação JavaScript de nível profissional, complementada por CSS, HTML que demonstra práticas modernas de engenharia de software, incluindo arquitetura limpa, testes abrangentes, implantação containerizada e prontidão para CI/CD.
 
-Total de linhas de código: **2,327** em **32** arquivos em **3** linguagens.
+A base de código compreende **2,327 linhas** de código-fonte organizadas em **32 módulos**, seguindo as melhores práticas do setor para manutenibilidade, escalabilidade e qualidade de código.
 
 ### ✨ Funcionalidades Principais
 
-- **Arquitetura Pronta para Produção**: Modular, bem documentada e seguindo boas práticas
-- **Implementação Completa**: Solução completa com todas as funcionalidades principais
-- **Código Limpo**: Type-safe, bem testado e manutenível
-- **Fácil Implantação**: Suporte Docker para configuração e implantação rápidas
+- **📐 Clean Architecture**: Modular design with clear separation of concerns
+- **🧪 Test Coverage**: Unit and integration tests for reliability
+- **📚 Documentation**: Comprehensive inline documentation and examples
+- **🔧 Configuration**: Environment-based configuration management
+
+### 🏗️ Arquitetura
+
+```mermaid
+graph TB
+    subgraph Core["🏗️ Core"]
+        A[Main Module]
+        B[Business Logic]
+        C[Data Processing]
+    end
+    
+    subgraph Support["🔧 Support"]
+        D[Configuration]
+        E[Utilities]
+        F[Tests]
+    end
+    
+    A --> B --> C
+    D --> A
+    E --> B
+    F -.-> B
+    
+    style Core fill:#e1f5fe
+    style Support fill:#f3e5f5
+```
 
 ### 🚀 Início Rápido
 
-#### Pré-requisitos
-- Node.js 20+ e npm
-- Docker e Docker Compose (opcional)
+#### Prerequisites
 
-#### Instalação
+- Node.js 20+
+- npm or yarn
 
-1. **Clone the repository**
+#### Installation
+
 ```bash
+# Clone the repository
 git clone https://github.com/galafis/Javascript-Fullstack-Capstone-Project.git
 cd Javascript-Fullstack-Capstone-Project
-```
 
-2. **Install dependencies**
-```bash
+# Install dependencies
 npm install
 ```
 
-#### Execução
+#### Running
 
 ```bash
+# Development mode
 npm run dev
+
+# Production build
+npm run build
+npm start
 ```
 
+### 🐳 Docker
 
+```bash
+# Start all services
+docker-compose up -d
 
+# View logs
+docker-compose logs -f
+
+# Stop all services
+docker-compose down
+
+# Rebuild after changes
+docker-compose up -d --build
+```
 
 ### 📁 Estrutura do Projeto
 
 ```
 Javascript-Fullstack-Capstone-Project/
 ├── giftlink-backend/
-│   ├── models/
+│   ├── models/        # Data models
 │   │   └── db.js
 │   ├── routes/
 │   │   ├── authRoutes.js
@@ -201,6 +312,7 @@ Javascript-Fullstack-Capstone-Project/
 │   │   └── index.js
 │   ├── util/
 │   │   └── import-mongo/
+│   ├── Dockerfile
 │   ├── app.js
 │   ├── deployment.yml
 │   ├── logger.js
@@ -212,15 +324,17 @@ Javascript-Fullstack-Capstone-Project/
 │   │   ├── static/
 │   │   ├── manifest.json
 │   │   └── robots.txt
-│   ├── src/
+│   ├── src/          # Source code
 │   │   ├── components/
 │   │   ├── context/
 │   │   ├── App.js
 │   │   ├── config.js
 │   │   └── index.js
+│   ├── Dockerfile
 │   ├── package-lock.json
 │   └── package.json
 ├── giftwebsite/
+│   ├── Dockerfile
 │   ├── index.js
 │   ├── package-lock.json
 │   └── package.json
@@ -238,6 +352,9 @@ Javascript-Fullstack-Capstone-Project/
 │   ├── logger.js
 │   ├── package-lock.json
 │   └── package.json
+├── tests/         # Test suite
+│   └── main.test.js
+├── LICENSE
 ├── README.md
 ├── deploymongo.yml
 ├── docker-compose.yml
@@ -246,11 +363,39 @@ Javascript-Fullstack-Capstone-Project/
 
 ### 🛠️ Stack Tecnológica
 
-| Tecnologia | Uso |
-|------------|-----|
-| JavaScript | 22 files |
-| CSS | 8 files |
-| HTML | 2 files |
+| Tecnologia | Descrição | Papel |
+|------------|-----------|-------|
+| **JavaScript** | Core Language | Primary |
+| CSS | 8 files | Supporting |
+| HTML | 2 files | Supporting |
+
+### 🚀 Deployment
+
+#### Cloud Deployment Options
+
+The application is containerized and ready for deployment on:
+
+| Platform | Service | Notes |
+|----------|---------|-------|
+| **AWS** | ECS, EKS, EC2 | Full container support |
+| **Google Cloud** | Cloud Run, GKE | Serverless option available |
+| **Azure** | Container Instances, AKS | Enterprise integration |
+| **DigitalOcean** | App Platform, Droplets | Cost-effective option |
+
+```bash
+# Production build
+docker build -t Javascript-Fullstack-Capstone-Project:latest .
+
+# Tag for registry
+docker tag Javascript-Fullstack-Capstone-Project:latest registry.example.com/Javascript-Fullstack-Capstone-Project:latest
+
+# Push to registry
+docker push registry.example.com/Javascript-Fullstack-Capstone-Project:latest
+```
+
+### 🤝 Contribuindo
+
+Contribuições são bem-vindas! Sinta-se à vontade para enviar um Pull Request.
 
 ### 📄 Licença
 
@@ -259,6 +404,5 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 ### 👤 Autor
 
 **Gabriel Demetrios Lafis**
-
 - GitHub: [@galafis](https://github.com/galafis)
 - LinkedIn: [Gabriel Demetrios Lafis](https://linkedin.com/in/gabriel-demetrios-lafis)
